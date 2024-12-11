@@ -1,1 +1,1 @@
-# Data Exploration using SQL
+# Different Portfolio Projects
