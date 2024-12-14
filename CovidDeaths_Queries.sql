@@ -110,23 +110,5 @@ select
 	location, date, avg(new_cases) 
 over(order by date rows between 6 preceding and current row) as 'Moving Avg' 
 from coviddeaths where location = 'Brazil';
--------------------------------------------------------------------------------------------
--- JOINS
-select * from covidvaccinations;
-select count(*) from covidvaccinations; -- 12351 Total entries
 
--- 27. Comparing total population vs. vaccinations.
-select 
-	d.location, d.population, d.date,
-    v.new_vaccinations 
-from coviddeaths d 
-join covidvaccinations v 
-on d.location = v.location and d.date = v.date;
 
--- 28. Finding the vaccination rates compared to deaths.
-select 
-	d.location, d.date, d.total_deaths, 
-    v.total_vaccinations, v.people_fully_vaccinated
-from coviddeaths d 
-join covidvaccinations v 
-on d.location = v.location and d.date = v.date;
